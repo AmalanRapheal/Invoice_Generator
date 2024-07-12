@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\sampro\invoice_generator\build\windows\x64\CMakeFiles\9af0168ade874eb44ce16078540f83ad\flutter_windows.dll.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\sampro\invoice_generator\build\windows\x64\CMakeFiles\ae0eca56340d7cf472ffde38be32530d\flutter_assemble.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\sampro\invoice_generator\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\sampro\invoice_generator\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{07F097C6-5A5B-3CFC-9B50-A4AFF99A8054}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
