@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="E:\sampro\invoice_generator\build\windows\x64\CMakeFiles\00d577574adb7428cf87264951bc7369\generate.stamp.rule">
+    <CustomBuild Include="E:\sampro\Invoice_Generator\build\windows\x64\CMakeFiles\c0ae4d209d071ee627e063ff70079365\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{07F097C6-5A5B-3CFC-9B50-A4AFF99A8054}</UniqueIdentifier>
+      <UniqueIdentifier>{2C33DAAB-D939-33D0-A7D3-BF1F8A3569CB}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

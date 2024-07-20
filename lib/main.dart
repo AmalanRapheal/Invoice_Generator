@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Dashborad UI',
+      title: 'Invoice Generator',
       home: const MainScreen(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

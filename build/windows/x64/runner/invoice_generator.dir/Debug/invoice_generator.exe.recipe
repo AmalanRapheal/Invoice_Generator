@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\sampro\invoice_generator\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>E:\sampro\Invoice_Generator\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>E:\sampro\invoice_generator\build\windows\x64\flutter\x64\Debug\flutter_assemble</FullPath>
+      <FullPath>E:\sampro\Invoice_Generator\build\windows\x64\flutter\x64\Debug\flutter_assemble</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>E:\sampro\invoice_generator\build\windows\x64\runner\Debug\invoice_generator.exe</FullPath>
+      <FullPath>E:\sampro\Invoice_Generator\build\windows\x64\runner\Debug\invoice_generator.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

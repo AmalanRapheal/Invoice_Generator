@@ -1,4 +1,4 @@
-# Install script for directory: E:/sampro/invoice_generator/windows/flutter
+# Install script for directory: E:/sampro/Invoice_Generator/windows/flutter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -72,9 +72,18 @@ class History extends StatelessWidget {
                       ),
                       const Center(
                         heightFactor: 2,
-                        child: Icon(
-                          Icons.print_sharp,
-                          color: primaryColor,
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.send_to_mobile,
+                              color: primaryColor,
+                            ),
+                            SizedBox(width: 20),
+                            Icon(
+                              Icons.print_sharp,
+                              color: primaryColor,
+                            ),
+                          ],
                         ),
                       ),
                     ],
