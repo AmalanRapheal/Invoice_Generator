@@ -1,0 +1,1 @@
+ E:\\sampro\\Invoice_Generator\\.dart_tool\\flutter_build\\d8762bd6fddbe282fc862f52162f1905\\native_assets.yaml: 

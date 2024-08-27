@@ -15,16 +15,29 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            'INVOICE GENERATOR',
+            'RECEIPT GENERATOR',
           ),
         ),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(Icons.find_in_page_outlined),
+              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              // tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            ),
+          ),
+        ],
       ),
-      drawer: !isDesktop
-          ? const SizedBox(
-              width: 250,
-              child: SideMenuWidget(),
-            )
-          : null,
+      drawer: const Drawer(
+        child: SideMenuWidget(),
+      ),
+
+      // drawer: !isDesktop
+      //     ? const SizedBox(
+      //         width: 250,
+      //         child: SideMenuWidget(),
+      //       )
+      //     : null,
       endDrawer: Responsive.isMobile(context)
           ? SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
@@ -34,13 +47,13 @@ class MainScreen extends StatelessWidget {
       body: SafeArea(
         child: Row(
           children: [
-            if (isDesktop)
-              const Expanded(
-                flex: 2,
-                child: SizedBox(
-                  child: SideMenuWidget(),
-                ),
-              ),
+            // if (isDesktop)
+            //   const Expanded(
+            //     flex: 2,
+            //     child: SizedBox(
+            //       child: SideMenuWidget(),
+            //     ),
+            //   ),
             const Expanded(
               flex: 7,
               child: DashboardWidget(),

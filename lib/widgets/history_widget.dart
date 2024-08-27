@@ -70,19 +70,34 @@ class History extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const Center(
-                        heightFactor: 2,
+                      Center(
+                        heightFactor: 1.5,
                         child: Row(
                           children: [
-                            Icon(
-                              Icons.send_to_mobile,
-                              color: primaryColor,
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.send_to_mobile,
+                                color: primaryColor,
+                              ),
                             ),
-                            SizedBox(width: 20),
-                            Icon(
-                              Icons.print_sharp,
-                              color: primaryColor,
-                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.print_sharp,
+                                color: primaryColor,
+                              ),
+                            )
+
+                            // Icon(
+                            //   Icons.send_to_mobile,
+                            //   color: primaryColor,
+                            // ),
+                            // SizedBox(width: 20),
+                            // Icon(
+                            //   Icons.print_sharp,
+                            //   color: primaryColor,
+                            // ),
                           ],
                         ),
                       ),

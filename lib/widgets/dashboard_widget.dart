@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:invoice_generator/widgets/preview_widget.dart';
-
 import '../utilities/responsive.dart';
 import 'data_card.dart';
 import 'list_card.dart';

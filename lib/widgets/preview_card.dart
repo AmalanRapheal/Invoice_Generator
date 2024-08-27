@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/constant.dart';
 
 Card cardPreview({
-  required String cardNumber,
+  required String mobileNumber,
   required String cardHolder,
   required String location,
 }) {
@@ -14,9 +14,9 @@ Card cardPreview({
       borderRadius: BorderRadius.circular(14),
     ),
     child: Container(
-      height: 250,
+      height: 350,
       padding: const EdgeInsets.only(
-          top: 8.0, left: 16.0, right: 16.0, bottom: 22.0),
+          top: 8.0, left: 16.0, right: 16.0, bottom: 10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,7 +48,7 @@ Card cardPreview({
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               buildDetailsBlock(
-                label: 'Recipient',
+                label: 'RECIPIENT',
                 value: cardHolder,
               ),
             ],
@@ -57,7 +57,7 @@ Card cardPreview({
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               buildDetailsBlock(
-                label: 'Location',
+                label: 'LOCATION',
                 value: location,
               ),
             ],
@@ -66,11 +66,28 @@ Card cardPreview({
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               buildDetailsBlock(
-                label: 'Mobile No',
-                value: cardNumber,
+                label: 'MOBILE NO',
+                value: mobileNumber,
+              ),
+              buildDetailsBlock(
+                label: 'AMOUNT',
+                value: "₹ " '2000' "/-",
               ),
             ],
           ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'We Thank You for Your Presence',
+                style: TextStyle(color: secondryTextColor),
+              ),
+              Icon(
+                Icons.insert_emoticon_outlined,
+                color: Colors.amber,
+              )
+            ],
+          )
         ],
       ),
     ),
@@ -96,7 +113,7 @@ Column buildDetailsBlock({required String label, required String value}) {
           fontWeight: FontWeight.w600,
           letterSpacing: .5,
         ),
-      )
+      ),
     ],
   );
 }
@@ -126,7 +143,7 @@ class _PreviewCardState extends State<PreviewCard> {
             location: locationController.text.isEmpty
                 ? "Location"
                 : locationController.text.toUpperCase(),
-            cardNumber: mobileNumberController.text.isEmpty
+            mobileNumber: mobileNumberController.text.isEmpty
                 ? "Mobile Number"
                 : mobileNumberController.text,
           ),

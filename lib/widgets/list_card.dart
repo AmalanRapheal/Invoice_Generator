@@ -19,6 +19,7 @@ class ListCard extends StatelessWidget {
           AspectRatio(
             aspectRatio: 16 / 6,
             child: TextField(
+              style: const TextStyle(color: secondryTextColor),
               decoration: InputDecoration(
                 filled: true,
                 fillColor: selectionColor,
@@ -38,11 +39,38 @@ class ListCard extends StatelessWidget {
                 hintText: 'Enter Name',
                 prefixIcon: const Icon(
                   Icons.search,
-                  color: secondryTextColor,
+                  color: iconColor,
                   size: 21,
                 ),
               ),
             ),
+          ),
+          const SizedBox(height: 12),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.deepPurpleAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      'View All'.toUpperCase(),
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
