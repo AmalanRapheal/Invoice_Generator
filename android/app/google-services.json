@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "841832739852",
+    "project_id": "receipt-generator-45951",
+    "storage_bucket": "receipt-generator-45951.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841832739852:android:5dfd6bfc234b9f8ab8aa29",
+        "android_client_info": {
+          "package_name": "com.example.invoice_generator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZORTujC_HeAmJVptfpNZKByT4JasMidI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
