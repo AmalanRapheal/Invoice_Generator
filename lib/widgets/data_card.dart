@@ -18,10 +18,11 @@ class _DataCardState extends State<DataCard> {
   final TextEditingController locationController = TextEditingController();
   final TextEditingController remarksController = TextEditingController();
   final TextEditingController mobileNumberController = TextEditingController();
+  final TextEditingController amountController = TextEditingController();
 
   List<Customer> customerList = [];
 
-  bool updateCustomer = true;
+  bool updateCustomer = false;
 
   @override
   void initState() {
@@ -181,7 +182,7 @@ class _DataCardState extends State<DataCard> {
                   suffixIcon: Icon(Icons.abc),
                 ),
                 onChanged: (value) {
-                  setState(() {});
+                  // setState(() {});
                 },
               ),
             ),
@@ -280,8 +281,7 @@ class _DataCardState extends State<DataCard> {
                   ),
                   child: TextFormField(
                     style: const TextStyle(color: secondryTextColor),
-
-                    // controller: amountController,
+                    controller: amountController,
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
@@ -298,7 +298,6 @@ class _DataCardState extends State<DataCard> {
                       ),
                       suffixIcon: Icon(Icons.onetwothree_sharp),
                     ),
-
                     onTap: () {},
                     onChanged: (value) {
                       setState(() {});
@@ -335,14 +334,16 @@ class _DataCardState extends State<DataCard> {
                       onPressed: () {
                         Map<String, dynamic> data = {
                           "name": nameController.text.toString(),
+                          "loaction": locationController.text.toString(),
+                          "remarks": remarksController.text.toString(),
                           "mobile": mobileNumberController.text.toString(),
-                          "amount": locationController.text.toString()
+                          "amount": amountController.text.toString()
                         };
 
                         if (updateCustomer) {
                           dbRef
                               .child("Customers")
-                              .child(key!)
+                              .child(key ??= "default")
                               .update(data)
                               .then((value) {
                             int index = customerList

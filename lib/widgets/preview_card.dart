@@ -14,22 +14,26 @@ class _PreviewCardState extends State<PreviewCard> {
         TextEditingController();
     final TextEditingController nameController = TextEditingController();
     final TextEditingController locationController = TextEditingController();
+    final TextEditingController amountController = TextEditingController();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const SizedBox(height: 5),
         Card(
           child: cardPreview(
-            cardHolder: nameController.text.isEmpty
-                ? "Recipient Name"
-                : nameController.text.toUpperCase(),
-            location: locationController.text.isEmpty
-                ? "Location"
-                : locationController.text.toUpperCase(),
-            mobileNumber: mobileNumberController.text.isEmpty
-                ? "Mobile Number"
-                : mobileNumberController.text,
-          ),
+              cardHolder: nameController.text.isEmpty
+                  ? "Recipient Name"
+                  : nameController.text.toUpperCase(),
+              location: locationController.text.isEmpty
+                  ? "Location"
+                  : locationController.text.toUpperCase(),
+              mobileNumber: mobileNumberController.text.isEmpty
+                  ? "Mobile Number"
+                  : mobileNumberController.text,
+              amount: amountController.text.isEmpty
+                  ? "Amount"
+                  : amountController.text),
         ),
       ],
     );
@@ -40,6 +44,7 @@ Card cardPreview({
   required String cardHolder,
   required String location,
   required String mobileNumber,
+  required String amount,
 }) {
   return Card(
     elevation: 4.0,
@@ -63,7 +68,7 @@ Card cardPreview({
                 style: TextStyle(
                   color: secondryTextColor,
                   fontSize: 20,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w900,
                   letterSpacing: 1,
                 ),
               ),
@@ -105,7 +110,7 @@ Card cardPreview({
               ),
               buildDetailsBlock(
                 label: 'AMOUNT',
-                value: "₹ " '2000' "/-",
+                value: amount,
               ),
             ],
           ),
