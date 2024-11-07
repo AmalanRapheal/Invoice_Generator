@@ -4,5 +4,8 @@ class HistoryModel {
   final String amount;
 
   const HistoryModel(
-      {required this.title, required this.date, required this.amount});
+      /* Customer customer, */
+      {required this.title,
+      required this.date,
+      required this.amount});
 }

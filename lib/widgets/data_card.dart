@@ -14,6 +14,9 @@ class DataCard extends StatefulWidget {
 class _DataCardState extends State<DataCard> {
   DatabaseReference dbRef = FirebaseDatabase.instance.ref();
 
+// Initial Selected Value
+  String dropdownvalue = 'Donation';
+
   final TextEditingController nameController = TextEditingController();
   final TextEditingController locationController = TextEditingController();
   final TextEditingController remarksController = TextEditingController();
@@ -65,8 +68,6 @@ class _DataCardState extends State<DataCard> {
               child: DropdownButtonFormField(
                 iconEnabledColor: iconColor,
                 dropdownColor: backgroundColor,
-                // controller: cardHolderNameController,
-
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   contentPadding:
@@ -81,41 +82,106 @@ class _DataCardState extends State<DataCard> {
                     color: iconColor,
                   ),
                 ),
-                onChanged: (value) {
-                  //
+                value: dropdownvalue,
+
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdownvalue = newValue!;
+                  });
                 },
-                items: const [
-                  DropdownMenuItem<String>(
-                    value: "1",
+                items: <String>[
+                  'Donation',
+                  'Prayer Service',
+                  'Offering',
+                  'Occasion Gift',
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
                     child: Text(
-                      "Prayer Service",
+                      value,
                       style: TextStyle(color: secondryTextColor),
                     ),
-                  ),
-                  DropdownMenuItem<String>(
-                    value: "2",
+                  );
+                }).toList(),
+
+                /*items: items.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
                     child: Text(
-                      "Donation",
-                      style: TextStyle(color: secondryTextColor),
+                      items,
+                      
                     ),
-                  ),
-                  DropdownMenuItem<String>(
-                    value: "3",
-                    child: Text(
-                      "Offering",
-                      style: TextStyle(color: secondryTextColor),
-                    ),
-                  ),
-                  DropdownMenuItem<String>(
-                    value: "4",
-                    child: Text(
-                      "Occasion Gift",
-                      style: TextStyle(color: secondryTextColor),
-                    ),
-                  )
-                ],
+                  );
+                }).toList(), */
+                // items:  [
+                //   DropdownMenuItem<String>(
+                //     value: "1",
+                //     child: Text(
+                //       "Prayer Service",
+                //       style: TextStyle(color: secondryTextColor),
+                //     ),
+                //   ),
+                //   DropdownMenuItem<String>(
+                //     value: "2",
+                //     child: Text(
+                //       "Donation",
+                //       style: TextStyle(color: secondryTextColor),
+                //     ),
+                //   ),
+                //   DropdownMenuItem<String>(
+                //     value: "3",
+                //     child: Text(
+                //       "Offering",
+                //       style: TextStyle(color: secondryTextColor),
+                //     ),
+                //   ),
+                //   DropdownMenuItem<String>(
+                //     value: "4",
+                //     child: Text(
+                //       "Occasion Gift",
+                //       style: TextStyle(color: secondryTextColor),
+                //     ),
+                //   )
+                // ],
               ),
             ),
+
+// - WORKING BLOCK OF CODE
+            /* const SizedBox(height: 12),
+            Container(
+              height: 55,
+              width: MediaQuery.of(context).size.width / 1.12,
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: DropdownButton(
+                hint: Text('Select a Service'),
+                // Initial Value
+                value: dropdownvalue,
+
+                // Down Arrow Icon
+                icon: const Icon(Icons.keyboard_arrow_down),
+
+                // Array list of items 
+                items: <String>['One', 'Two', 'Free', 'Four']
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+
+
+                // After selecting the desired option,it will
+                // change button value to selected value
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdownvalue = newValue!;
+                  });
+                },
+              ),
+            ), */
             const SizedBox(height: 12),
             Container(
               height: 55,
@@ -333,11 +399,12 @@ class _DataCardState extends State<DataCard> {
                       ),
                       onPressed: () {
                         Map<String, dynamic> data = {
+                          "event": dropdownvalue,
                           "name": nameController.text.toString(),
                           "loaction": locationController.text.toString(),
                           "remarks": remarksController.text.toString(),
                           "mobile": mobileNumberController.text.toString(),
-                          "amount": amountController.text.toString()
+                          "amount": amountController.text.toString(),
                         };
 
                         if (updateCustomer) {
@@ -450,5 +517,56 @@ class _DataCardState extends State<DataCard> {
       customerList.add(customer);
       setState(() {});
     });
+  }
+
+  Widget customerWidget(Customer customer) {
+    return InkWell(
+      // onTap: () {
+      //   _edtNameController.text = student.studentData!.name!;
+      //   _edtAgeController.text = student.studentData!.age!;
+      //   _edtSubjectController.text = student.studentData!.subject!;
+      //   updateStudent = true;
+      //   studentDialog(key: student.key);
+      // },
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(5),
+        margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.black)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(customer.customerData!.name!),
+                Text(customer.customerData!.amount!),
+                Text(customer.customerData!.location!),
+              ],
+            ),
+            InkWell(
+                onTap: () {
+                  dbRef
+                      .child("Customer")
+                      .child(customer.key!)
+                      .remove()
+                      .then((value) {
+                    int index = customerList
+                        .indexWhere((element) => element.key == customer.key!);
+                    customerList.removeAt(index);
+                    setState(() {});
+                  });
+                },
+                child: const Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ))
+          ],
+        ),
+      ),
+    );
   }
 }
