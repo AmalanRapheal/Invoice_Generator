@@ -3,6 +3,7 @@ import 'package:invoice_generator/widgets/custom_card_widget.dart';
 import 'package:firebase_database/firebase_database.dart';
 import '../constants/constant.dart';
 import '../modal/customer_model.dart';
+import 'save_btn.dart';
 
 class DataCard extends StatefulWidget {
   const DataCard({super.key});
@@ -456,7 +457,9 @@ class _DataCardState extends State<DataCard> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        SaveBtnBuilder().printDoc();
+                      },
                       label: Text(
                         'Save & Print'.toUpperCase(),
                         style: const TextStyle(
@@ -482,7 +485,14 @@ class _DataCardState extends State<DataCard> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        nameController.clear();
+                        locationController.clear();
+                        remarksController.clear();
+                        mobileNumberController.clear();
+                        amountController.clear();
+                        dropdownvalue = dropdownvalue;
+                      },
                       label: Text(
                         'Clear'.toUpperCase(),
                         style: const TextStyle(
@@ -506,7 +516,7 @@ class _DataCardState extends State<DataCard> {
     );
   }
 
-// // Retrive Data - Work-In-Progress
+  // Retrive Data - Work-In-Progress
 
   void retrieveCustomerData() {
     dbRef.child("Customer").onChildAdded.listen((data) {
@@ -518,7 +528,8 @@ class _DataCardState extends State<DataCard> {
       setState(() {});
     });
   }
-
+/* 
+// Trail history widget
   Widget customerWidget(Customer customer) {
     return InkWell(
       // onTap: () {
@@ -568,5 +579,5 @@ class _DataCardState extends State<DataCard> {
         ),
       ),
     );
-  }
+  } */
 }

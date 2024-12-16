@@ -8,9 +8,14 @@ const selectionColor = Colors.white;
 const drawerBackground = Colors.lightBlue;
 const primaryTextColor = Colors.white;
 const secondryTextColor = Colors.black;
+
 const iconColor = Colors.blue;
 
 const defaultPadding = 20.0;
+
+const iconSize = 20.0;
+const previewTextHeader = 20.0;
+const previewSubText = 16.0;
 
 
 

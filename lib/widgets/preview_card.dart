@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../constants/constant.dart';
+import '../controller/getx_controller.dart';
 
 class PreviewCard extends StatefulWidget {
   const PreviewCard({super.key});
@@ -10,10 +12,13 @@ class PreviewCard extends StatefulWidget {
 class _PreviewCardState extends State<PreviewCard> {
   @override
   Widget build(BuildContext context) {
+    // final TextControllers nameController = Get.put(TextControllers());
+
     final TextEditingController mobileNumberController =
         TextEditingController();
-    final TextEditingController nameController = TextEditingController();
     final TextEditingController locationController = TextEditingController();
+
+    final TextEditingController pnameController = TextEditingController();
     final TextEditingController amountController = TextEditingController();
 
     return Column(
@@ -22,9 +27,9 @@ class _PreviewCardState extends State<PreviewCard> {
         const SizedBox(height: 5),
         Card(
           child: cardPreview(
-              cardHolder: nameController.text.isEmpty
+              customerName: pnameController.text.isEmpty
                   ? "Recipient Name"
-                  : nameController.text.toUpperCase(),
+                  : pnameController.text.toUpperCase(),
               location: locationController.text.isEmpty
                   ? "Location"
                   : locationController.text.toUpperCase(),
@@ -41,7 +46,7 @@ class _PreviewCardState extends State<PreviewCard> {
 }
 
 Card cardPreview({
-  required String cardHolder,
+  required String customerName,
   required String location,
   required String mobileNumber,
   required String amount,
@@ -88,7 +93,7 @@ Card cardPreview({
             children: <Widget>[
               buildDetailsBlock(
                 label: 'RECIPIENT',
-                value: cardHolder,
+                value: customerName,
               ),
             ],
           ),

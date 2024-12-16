@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import '../constants/constant.dart';
 import 'history_widget.dart';
 import 'preview_card.dart';
+import 'print_preview.dart';
 
-class PreviewWidget extends StatelessWidget {
-  const PreviewWidget({super.key});
+class SideBar extends StatelessWidget {
+  const SideBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +34,13 @@ class PreviewWidget extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 5),
-              PreviewCard(),
+              PrintPreview(),
               SizedBox(height: 5),
               History(),
+              SizedBox(height: 5),
+              // Test for printscreen
+              // PrintScreen(),
+              // PreviewCard(),
             ],
           ),
         ),

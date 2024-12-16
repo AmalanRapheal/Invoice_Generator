@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:invoice_generator/widgets/preview_widget.dart';
+import 'package:invoice_generator/widgets/sidebar_widget.dart';
 import '../utilities/responsive.dart';
 import 'data_card.dart';
 import 'list_card.dart';
@@ -24,7 +24,7 @@ class DashboardWidget extends StatelessWidget {
             const ListCard(),
             // const BarGraphCard(),
             const SizedBox(height: 18),
-            if (Responsive.isTablet(context)) const PreviewWidget(),
+            if (Responsive.isTablet(context)) const SideBar(),
           ],
         ),
       ),

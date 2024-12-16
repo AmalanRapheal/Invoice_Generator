@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:invoice_generator/widgets/preview_widget.dart';
+import 'package:invoice_generator/widgets/sidebar_widget.dart';
 import '../utilities/responsive.dart';
 import '../widgets/dashboard_widget.dart';
 import '../widgets/side_menu_widgets.dart';
@@ -41,7 +41,7 @@ class MainScreen extends StatelessWidget {
       endDrawer: Responsive.isMobile(context)
           ? SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
-              child: const PreviewWidget(),
+              child: const SideBar(),
             )
           : null,
       body: SafeArea(
@@ -61,7 +61,7 @@ class MainScreen extends StatelessWidget {
             if (isDesktop)
               const Expanded(
                 flex: 3,
-                child: PreviewWidget(),
+                child: SideBar(),
               ),
           ],
         ),
